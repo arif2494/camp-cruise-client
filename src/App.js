@@ -5,7 +5,7 @@ import './App.css';
 function App() {
 	return (
 		<div className="App">
-			<h1>camp cruise</h1>
+			<h1>camp cruises</h1>
 			<FontAwesomeIcon icon={faCoffee} />
 		</div>
 	);
