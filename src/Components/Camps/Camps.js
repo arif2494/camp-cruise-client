@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Camp from '../Camp/Camp';
 
 const Camps = () => {
+	const [ camps, setCamps ] = useState([]);
+	useEffect(() => {
+		fetch('http://localhost:5000/camps').then((res) => res.json()).then((data) => setCamps(data));
+	}, []);
 	return (
 		<div className="bg-gray-200 my-6">
 			<div className="container mx-auto">
@@ -24,8 +29,8 @@ const Camps = () => {
 						</p>
 					</div>
 				</div>
-				{/* body */}
-				<h1 className="my-36">lo</h1>
+				{/* all camps */}
+				<div>{camps.map((camp) => <Camp key={camp.id} camp={camp} />)}</div>
 			</div>
 		</div>
 	);
