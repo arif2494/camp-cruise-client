@@ -9,20 +9,10 @@ const useFirebase = () => {
 
 	// google sign in
 	const googleProvider = new GoogleAuthProvider();
-
 	const auth = getAuth();
 
 	const signinUsingGoogle = () => {
-		signInWithPopup(auth, googleProvider)
-			.then((result) => {
-				const user = result.user;
-				setUser(user);
-				console.log(user);
-			})
-			.catch((error) => {
-				const errorMessage = error.message;
-				console.log(errorMessage);
-			});
+		return signInWithPopup(auth, googleProvider);
 	};
 
 	// current user
@@ -32,7 +22,7 @@ const useFirebase = () => {
 				if (user) {
 					setUser(user);
 				} else {
-					setUser({});
+					setUser('');
 				}
 			});
 			return () => unsubscribed;
@@ -42,13 +32,14 @@ const useFirebase = () => {
 	// logout
 	const logOut = () => {
 		signOut(auth).then(() => {
-			setUser({});
+			setUser('');
 		});
 	};
 	return {
 		logOut,
 		user,
-		signinUsingGoogle
+		signinUsingGoogle,
+		setUser
 	};
 };
 export default useFirebase;

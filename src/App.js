@@ -6,6 +6,7 @@ import './App.css';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Order from './Components/Order/Order';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 function App() {
 	return (
@@ -15,9 +16,9 @@ function App() {
 					<Route exact path="/">
 						<Home />
 					</Route>
-					<Route path="/order/:id">
+					<PrivateRoute path="/order/:id">
 						<Order />
-					</Route>
+					</PrivateRoute>
 					<Route path="/login">
 						<Login />
 					</Route>
