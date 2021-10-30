@@ -30,7 +30,9 @@ const Camps = () => {
 					</div>
 				</div>
 				{/* all camps */}
-				<div>{camps.map((camp) => <Camp key={camp.id} camp={camp} />)}</div>
+				<div className="grid grid-cols-3 gap-2 my-6">
+					{camps.map((camp) => <Camp key={camp._id} camp={camp} />)}
+				</div>
 			</div>
 		</div>
 	);
