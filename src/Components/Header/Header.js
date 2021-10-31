@@ -9,7 +9,7 @@ const Header = () => {
 		<div className="bg-nav">
 			<div className="container mx-auto">
 				<nav>
-					<div className="logo">CAMP CRUISE</div>
+					<div className="logo"><Link to='/'>CAMP CRUISE</Link></div>
 					<label htmlFor="btn" className="icon" id="bar-icon">
 						<span id="bar">
 							<FontAwesomeIcon icon={faBars} />
@@ -43,8 +43,8 @@ const Header = () => {
 						</li>
 
 						<li>
-							{user.photoURL && (
-								<img src={user.photoURL} alt="!" className="w-10 rounded-full mb-2 md:-mb-3 mr-3" />
+							{user?.photoURL && (
+								<img src={user?.photoURL} alt="!" className="w-10 rounded-full mb-2 md:-mb-3 mr-3" />
 							)}
 						</li>
 						</> : 	<li>
