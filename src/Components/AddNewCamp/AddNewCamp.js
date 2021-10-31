@@ -43,7 +43,7 @@ const AddNewCamp = () => {
 			<div className="container mx-auto">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8 p-2">
 					<div>
-						<img src="https://source.unsplash.com/random/1000x700?camping" alt="" />
+						<img src="https://i.ibb.co/jf619TG/New-Project-1.jpg" alt="" />
 					</div>
 					<div>
 						<h2 className="text-2xl text-center font-medium">Add a New Camp</h2>

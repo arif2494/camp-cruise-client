@@ -10,6 +10,7 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import ManageAllOrders from './Components/ManageAllOrders/ManageAllOrders';
 import AddNewCamp from './Components/AddNewCamp/AddNewCamp';
+import PageNotFound from './Components/PageNotFound/PageNotFound';
 
 function App() {
 	return (
@@ -23,17 +24,20 @@ function App() {
 					<PrivateRoute path="/order/:id">
 						<Order />
 					</PrivateRoute>
-					<Route path="/myorder">
+					<PrivateRoute path="/myorder">
 						<MyOrder />
-					</Route>
-					<Route path="/manageorder">
+					</PrivateRoute>
+					<PrivateRoute path="/manageorder">
 						<ManageAllOrders />
-					</Route>
-					<Route path="/addnewcamp">
+					</PrivateRoute>
+					<PrivateRoute path="/addnewcamp">
 						<AddNewCamp />
-					</Route>
+					</PrivateRoute>
 					<Route path="/login">
 						<Login />
+					</Route>
+					<Route path="*">
+						<PageNotFound />
 					</Route>
 				</Switch>
 				<Footer />
