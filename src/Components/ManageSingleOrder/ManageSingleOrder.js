@@ -35,15 +35,21 @@ const ManageSingleOrder = (props) => {
 			<p>Name: {name}</p>
 			<p className="col-span-2">Email: {email}</p>
 			<p>Price: {campPrice}</p>
-			<p>Status: {status}</p>
+			{status === 'Pending' ? (
+				<p className="text-red-700 ">Status: {status}</p>
+			) : (
+				<p className="text-green-700 ">Status: {status}</p>
+			)}
 			<p>Address: {address}</p>
 			<div>
-				<button onClick={() => approveOrder(_id)} className="bg-green-700 text-gray-200 mr-2 py-2 px-4">
-					Approve
-				</button>
-				<button onClick={() => cancelOrder(_id)} className="bg-red-700 text-gray-200 py-2 px-4">
+				<button onClick={() => cancelOrder(_id)} className="bg-red-700 text-gray-200 py-2 px-4 mr-2">
 					Cancel
 				</button>
+				{status === 'Pending' && (
+					<button onClick={() => approveOrder(_id)} className="bg-green-700 text-gray-200  py-2 px-4">
+						Approve
+					</button>
+				)}
 			</div>
 		</div>
 	);
