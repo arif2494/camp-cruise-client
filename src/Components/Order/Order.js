@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import { useForm } from 'react-hook-form';
+import { useHistory, useParams } from 'react-router';
+// import { useForm } from 'react-hook-form';
+import useAuth from '../../hooks/useAuth';
 
 const Order = () => {
+	const { user } = useAuth();
 	const [ campData, setCampData ] = useState({});
 	const [ orderData, setOrderData ] = useState({});
 	const { id } = useParams();
+	const history = useHistory()
 	useEffect(
 		() => {
-			fetch('http://localhost:5000/order', {
+			fetch('http://localhost:5000/camp', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -18,23 +21,40 @@ const Order = () => {
 				})
 			})
 				.then((res) => res.json())
-				.then((data) => setCampData(data));
+				.then((data) => {
+					setCampData(data)
+				});
 		},
 		[ id ]
 	);
 
 	// hook form
 
-	const { register, handleSubmit } = useForm();
-	const onSubmit = (data) => {
-		setOrderData(data);
-	};
-	// handle order
-	const handleOrder = (id) => {
-		orderData.id = id;
-		console.log(orderData);
+	// const { register, handleSubmit } = useForm();
+	const handleAddress= e=>{
+const address=		e.target.value
+const order= {name: user?.displayName,email:user?.email,campName:campData?.name, campPrice:campData?.price, address: address,status:'Pending' }
+setOrderData(order)
+	}
+	const handleSubmit =  (e) => {
+e.preventDefault()
+		 		fetch('http://localhost:5000/orders',{
+		method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body:JSON.stringify(orderData)
+}).then(res=> res.json())
+.then(data =>{
+	if (data){
+		alert('order confirm')
+		history.push('/')
+	}
+})
+
 	};
 
+console.log(user, 'from order')
 	return (
 		<div>
 			<div className="container mx-auto">
@@ -59,38 +79,39 @@ const Order = () => {
 					<div>
 						Please fill up the form to confirm order
 						{/* form */}
-						<form className="flex items-center flex-col" onSubmit={handleSubmit(onSubmit)}>
+						<form className="flex items-center flex-col" onSubmit={handleSubmit}>
 							<input
 								className="bg-gray-200 px-3 border-2 my-2 w-full py-3 rounded"
+								placeholder="Camp Name"
+								defaultValue={campData?.name}
+
+							/>
+							<input
+								className="bg-gray-200 px-3 border-2 my-2 w-full py-3 rounded"
+								placeholder="Camp Name"
+								defaultValue={campData?.price}
+
+							/>
+							<input
+								className="bg-gray-200 px-3 border-2 my-2 w-full py-3 rounded"
+								defaultValue={user?.displayName}
 								placeholder="Name"
-								{...register('name', { required: true })}
+								
 							/>
 
 							<input
 								className="bg-gray-200 px-3 border-2 my-2 w-full py-3 rounded"
 								placeholder="Email"
-								{...register('email', { required: true })}
+								defaultValue={user?.email}
+							
 							/>
-							<input
-								className="bg-gray-200 px-3 border-2 my-2 w-full py-3 rounded"
-								placeholder="Area"
-								{...register('area', { required: true })}
-							/>
-							<input
-								className="bg-gray-200 px-3 border-2 my-2 w-full py-3 rounded"
-								placeholder="City"
-								{...register('city', { required: true })}
-							/>
-							<input
-								className="bg-gray-200 px-3 border-2 my-2 w-full py-3 rounded"
-								placeholder="Country"
-								{...register('country', { required: true })}
-							/>
+							<textarea onBlur={handleAddress} name="address"  className="bg-gray-200 px-3 border-2 my-2 w-full py-3 rounded" rows='8'></textarea>
+						
 
-							<button
+							<button 
 								className=" my-2 text-lg font-bold px-6 py-3 bg-black text-white cursor-pointer"
 								type="submit"
-								onClick={() => handleOrder(campData._id)}
+							
 							>
 								Submit
 							</button>

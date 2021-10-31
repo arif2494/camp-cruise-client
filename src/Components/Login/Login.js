@@ -25,7 +25,7 @@ const Login = () => {
 		<div>
 			<div className="mx-auto container">
 				<h2 className="text-center text-3xl font-bold my-6">This is login page</h2>
-				<div className="flex justify-center">
+				<div className="flex justify-center my-36">
 					<button onClick={handleGoogleSignIn} className="text-xl font-medium bg-black text-white px-6 py-3">
 						Google Login
 					</button>
