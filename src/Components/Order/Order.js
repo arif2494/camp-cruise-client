@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 // import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';

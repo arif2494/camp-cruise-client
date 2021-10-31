@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import Camp from '../Camp/Camp';
 
 const Camps = () => {
