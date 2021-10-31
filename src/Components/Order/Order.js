@@ -70,9 +70,7 @@ console.log(user, 'from order')
 							<p className=" my-2 text-lg">{campData.desc}</p>
 							<p className=" my-2 text-lg font-bold">Person : {campData.person} </p>
 							<p className=" my-2 text-lg font-bold">Price : {campData.price}</p>
-							<button className=" my-2 text-lg font-bold px-6 py-3 bg-black text-white">
-								Confirm Order
-							</button>
+							
 						</div>
 					</div>
 					{/* form for order */}
