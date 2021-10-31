@@ -11,7 +11,7 @@ const Order = () => {
 	const history = useHistory()
 	useEffect(
 		() => {
-			fetch('http://localhost:5000/camp', {
+			fetch('https://possessed-cemetery-72511.herokuapp.com/camp', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ setOrderData(order)
 	}
 	const handleSubmit =  (e) => {
 e.preventDefault()
-		 		fetch('http://localhost:5000/orders',{
+		 		fetch('https://possessed-cemetery-72511.herokuapp.com/orders',{
 		method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -54,14 +54,14 @@ e.preventDefault()
 
 	};
 
-console.log(user, 'from order')
+
 	return (
 		<div>
 			<div className="container mx-auto">
-				<h1>Details of the Camp</h1>
-				<div className="grid grid-cols-2 gap-4">
+				<h1 className='text-center text-3xl my-3 font-medium'>Details of the Camp</h1>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 					{/* camp details */}
-					<div>
+					<div className='p-2'>
 						<div>
 							<img className="w-full" src={campData.img} alt="!" />
 						</div>
@@ -74,7 +74,7 @@ console.log(user, 'from order')
 						</div>
 					</div>
 					{/* form for order */}
-					<div>
+					<div className='p-2'>
 						Please fill up the form to confirm order
 						{/* form */}
 						<form className="flex items-center flex-col" onSubmit={handleSubmit}>

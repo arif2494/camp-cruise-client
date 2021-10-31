@@ -22,7 +22,7 @@ const AddNewCamp = () => {
 			price: price,
 			person: person
 		};
-		fetch('http://localhost:5000/newcamp', {
+		fetch('https://possessed-cemetery-72511.herokuapp.com/newcamp', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ const AddNewCamp = () => {
 	return (
 		<div>
 			<div className="container mx-auto">
-				<div className="grid grid-cols-2 gap-4 my-8">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8 p-2">
 					<div>
 						<img src="https://source.unsplash.com/random/1000x700?camping" alt="" />
 					</div>

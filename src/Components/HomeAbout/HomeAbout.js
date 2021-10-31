@@ -12,7 +12,7 @@ const HomeAbout = () => {
 				<h3 className="text-5xl text-center font-medium -mt-8">
 					Welcome to Wonderer <br /> Camping Ground
 				</h3>
-				<p className="mt-6 text-xl w-8/12 mx-auto text-center">
+				<p className="mt-6 text-xl w-full p-4 md:w-8/12 mx-auto text-center ">
 					Camping is an outdoor activity involving overnight stays away from home with or without a shelter,
 					such as a tent or a recreational vehicle. Typically participants leave developed areas to spend time
 					outdoors in more natural ones in pursuit of activities providing them enjoyment. The night (or more)
@@ -20,7 +20,7 @@ const HomeAbout = () => {
 					recreational activities.
 				</p>
 			</div>
-			<div className="grid grid-cols-4 my-8">
+			<div className="grid grid-cols-2 md:grid-cols-4 my-8">
 				<div className="flex justify-center">
 					<img src={icon1} alt="!" />
 				</div>

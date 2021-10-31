@@ -9,7 +9,7 @@ const MyOrder = () => {
 	const userEmail = user.email;
 	useEffect(
 		() => {
-			fetch('http://localhost:5000/myorder', {
+			fetch('https://possessed-cemetery-72511.herokuapp.com/myorder', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ const MyOrder = () => {
 		<div>
 			<div className="container mx-auto">
 				<h2 className="text-center text-3xl my-6 font-medium">Showing your all orders</h2>
-				<div>{orders.map((order) => <MySingleOrder key={order._id} order={order} />)}</div>
+				<div className="p-2">{orders.map((order) => <MySingleOrder key={order._id} order={order} />)}</div>
 				<div />
 			</div>
 		</div>
