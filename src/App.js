@@ -11,6 +11,7 @@ import MyOrder from './Components/MyOrder/MyOrder';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import ManageAllOrders from './Components/ManageAllOrders/ManageAllOrders';
+import AddNewCamp from './Components/AddNewCamp/AddNewCamp';
 
 function App() {
 	return (
@@ -29,6 +30,9 @@ function App() {
 					</Route>
 					<Route path="/manageorder">
 						<ManageAllOrders />
+					</Route>
+					<Route path="/addnewcamp">
+						<AddNewCamp />
 					</Route>
 					<Route path="/login">
 						<Login />

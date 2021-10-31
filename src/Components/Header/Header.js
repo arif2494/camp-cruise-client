@@ -32,7 +32,7 @@ const Header = () => {
 									<Link to="/manageorder">Manage All Order</Link>
 								</li>
 								<li>
-									<a href="/">Add A New Service</a>
+									<Link to="/addnewcamp">Add A New Camp</Link>
 								</li>
 							</ul>
 						</li>
