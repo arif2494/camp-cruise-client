@@ -26,7 +26,7 @@ const Header = () => {
 							<label htmlFor="btn-1" className="show">
 								{user.displayName && user.displayName}+
 							</label>
-							{user.displayName && <a href="/">{user.displayName}</a>}
+							{user.displayName && <Link to="/">{user.displayName}</Link>}
 							<input className="input-field" type="checkbox" id="btn-1" />
 							<ul>
 								<li>
