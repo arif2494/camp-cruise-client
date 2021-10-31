@@ -29,7 +29,7 @@ const Header = () => {
 							<input className="input-field" type="checkbox" id="btn-1" />
 							<ul>
 								<li>
-									<a href="/">Manage All Order</a>
+									<Link to="/manageorder">Manage All Order</Link>
 								</li>
 								<li>
 									<a href="/">Add A New Service</a>

@@ -10,6 +10,7 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import MyOrder from './Components/MyOrder/MyOrder';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
+import ManageAllOrders from './Components/ManageAllOrders/ManageAllOrders';
 
 function App() {
 	return (
@@ -25,6 +26,9 @@ function App() {
 					</PrivateRoute>
 					<Route path="/myorder">
 						<MyOrder />
+					</Route>
+					<Route path="/manageorder">
+						<ManageAllOrders />
 					</Route>
 					<Route path="/login">
 						<Login />
